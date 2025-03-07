@@ -1,3 +1,5 @@
-document.querySelector("button").addEventListener("click", function() {
-    alert("Item added to cart!");
-});
+function addToCart() {
+  // في منصة سلة، ستحتاج لدمج الكود أو الرابط الصحيح لإضافة المنتج إلى السلة
+  // حالياً سنستخدم تنبيه بسيط كتجربة
+  alert("تمت إضافة المنتج إلى السلة!");
+}
