@@ -1,52 +1,82 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>MiniShop - منتج واحد</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ربط بخط Google (خط "Cairo" كمثال) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- الهيدر -->
+  <!-- الهيدر (ثابت أعلى الصفحة) -->
   <header class="header">
     <div class="logo">MiniShop</div>
-    <!-- إذا أردت زر للسلة -->
-    <!-- <a class="cart-button" href="#">سلة التسوق</a> -->
+    <nav class="nav">
+      <!-- يمكنك وضع روابط أقسام الصفحة للتنقل السلس -->
+      <a href="#home">الرئيسية</a>
+      <a href="#details">تفاصيل المنتج</a>
+      <a href="#reviews">التقييمات</a>
+    </nav>
   </header>
 
   <!-- قسم البطل (Hero) -->
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="hero-content">
       <h1>اسم المنتج الرائع</h1>
-      <p>وصف قصير ومشوّق للمنتج يجذب اهتمام العميل.</p>
+      <p>
+        وصف قصير ومشوّق للمنتج يجذب اهتمام العميل ويبرز مميزاته الأساسية.
+      </p>
       <button class="buy-button" onclick="addToCart()">اطلب الآن</button>
     </div>
-    <!-- ضع صورة المنتج هنا -->
-    <img src="https://via.placeholder.com/400x400" alt="صورة المنتج" class="product-image">
+    <div class="hero-image-container">
+      <!-- ضع صورة المنتج هنا -->
+      <img src="https://via.placeholder.com/450" alt="صورة المنتج" class="product-image" />
+    </div>
   </section>
 
   <!-- قسم تفاصيل المنتج -->
-  <section class="product-details">
+  <section class="product-details" id="details">
     <h2>تفاصيل المنتج</h2>
-    <ul>
-      <li>الميزة الأولى للمنتج</li>
-      <li>الميزة الثانية للمنتج</li>
-      <li>الميزة الثالثة للمنتج</li>
-    </ul>
+    <div class="details-grid">
+      <div class="detail-item">
+        <h3>الميزة الأولى</h3>
+        <p>وصف مختصر للميزة الأولى وكيف تفيد المستخدم.</p>
+      </div>
+      <div class="detail-item">
+        <h3>الميزة الثانية</h3>
+        <p>وصف مختصر للميزة الثانية وكيف تفيد المستخدم.</p>
+      </div>
+      <div class="detail-item">
+        <h3>الميزة الثالثة</h3>
+        <p>وصف مختصر للميزة الثالثة وكيف تفيد المستخدم.</p>
+      </div>
+    </div>
     <p class="price">السعر: 100 ريال</p>
     <button class="buy-button" onclick="addToCart()">أضف للسلة</button>
+  </section>
+
+  <!-- قسم التقييمات (اختياري) -->
+  <section class="reviews" id="reviews">
+    <h2>آراء العملاء</h2>
+    <div class="review-item">
+      <p>"منتج رائع فعلاً!"</p>
+      <span>- عميل سعيد</span>
+    </div>
+    <div class="review-item">
+      <p>"جودة ممتازة وسعر معقول."</p>
+      <span>- عميل آخر</span>
+    </div>
   </section>
 
   <!-- الفوتر -->
   <footer class="footer">
     <p>جميع الحقوق محفوظة © 2025 - MiniShop</p>
-    <div class="social-links">
-      <a href="#" target="_blank">انستقرام</a> |
-      <a href="#" target="_blank">تويتر</a>
-    </div>
   </footer>
 
+  <!-- ربط ملف السكربت -->
   <script src="script.js"></script>
 </body>
 </html>
