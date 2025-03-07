@@ -1,40 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Shop</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MiniShop - منتج واحد</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <div class="container">
-            <h1>Welcome to Mini Shop</h1>
-            <p>Fresh and delicious cookies just for you!</p>
-        </div>
-    </header>
 
-    <!-- Main Content -->
-    <main>
-        <section class="product">
-            <div class="product-image">
-                <img src="cookie.jpg" alt="Delicious Cookie">
-            </div>
-            <div class="product-info">
-                <h2>Chocolate Chip Cookie</h2>
-                <p>Our signature cookie with a perfect balance of chocolate chips and dough.</p>
-                <button>Add to Cart</button>
-            </div>
-        </section>
-    </main>
+  <!-- الهيدر -->
+  <header class="header">
+    <div class="logo">MiniShop</div>
+    <!-- إذا أردت زر للسلة -->
+    <!-- <a class="cart-button" href="#">سلة التسوق</a> -->
+  </header>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Mini Shop - All rights reserved.</p>
-        </div>
-    </footer>
+  <!-- قسم البطل (Hero) -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>اسم المنتج الرائع</h1>
+      <p>وصف قصير ومشوّق للمنتج يجذب اهتمام العميل.</p>
+      <button class="buy-button" onclick="addToCart()">اطلب الآن</button>
+    </div>
+    <!-- ضع صورة المنتج هنا -->
+    <img src="https://via.placeholder.com/400x400" alt="صورة المنتج" class="product-image">
+  </section>
 
-    <script src="script.js"></script>
+  <!-- قسم تفاصيل المنتج -->
+  <section class="product-details">
+    <h2>تفاصيل المنتج</h2>
+    <ul>
+      <li>الميزة الأولى للمنتج</li>
+      <li>الميزة الثانية للمنتج</li>
+      <li>الميزة الثالثة للمنتج</li>
+    </ul>
+    <p class="price">السعر: 100 ريال</p>
+    <button class="buy-button" onclick="addToCart()">أضف للسلة</button>
+  </section>
+
+  <!-- الفوتر -->
+  <footer class="footer">
+    <p>جميع الحقوق محفوظة © 2025 - MiniShop</p>
+    <div class="social-links">
+      <a href="#" target="_blank">انستقرام</a> |
+      <a href="#" target="_blank">تويتر</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
