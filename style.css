@@ -1,114 +1,169 @@
-/* استعادة التنسيق الأساسي */
+/* 1) إعادة ضبط أساسية */
 * {
   box-sizing: border-box;
 }
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  direction: rtl;
-  text-align: right;
+  font-family: 'Cairo', sans-serif;
+  direction: rtl; /* لأن اللغة عربية */
+  background: #f9f9f9;
+  color: #333;
 }
 
-/* تنسيق الهيدر */
+/* 2) الهيدر */
 .header {
-  background: #f8f8f8;
-  padding: 1rem 2rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky; /* يبقى الهيدر ثابتًا عند التمرير */
+  top: 0;
+  z-index: 10;
 }
 .logo {
-  font-weight: bold;
-  font-size: 1.2rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #ff6600;
 }
-
-/* زر السلة (إن استخدمته) */
-.cart-button {
-  background: #333;
-  color: #fff;
-  padding: 0.5rem 1rem;
+.nav a {
+  margin: 0 0.5rem;
   text-decoration: none;
-  border-radius: 4px;
+  color: #333;
+  font-weight: 500;
+}
+.nav a:hover {
+  color: #ff6600;
 }
 
-/* قسم البطل */
+/* 3) قسم البطل (Hero) */
 .hero {
   display: flex;
+  flex-wrap: wrap; /* لكي يصبح مرنًا على الشاشات الصغيرة */
   align-items: center;
   justify-content: space-between;
   padding: 2rem;
-  background: #eee;
+  background: linear-gradient(to right, #ff9a3c, #ff6600); /* خلفية متدرّجة */
+  color: #fff;
 }
 .hero-content {
-  max-width: 50%;
+  max-width: 500px;
+  margin-bottom: 1rem;
 }
 .hero-content h1 {
-  margin: 0;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  margin: 0 0 1rem;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.hero-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .product-image {
-  max-width: 40%;
-  border-radius: 8px;
+  max-width: 100%;
+  border-radius: 10px;
 }
 
-/* زر الشراء */
+/* 4) زر الشراء */
 .buy-button {
-  background: #ff6600;
-  color: #fff;
-  padding: 0.8rem 1.2rem;
+  background: #fff;
+  color: #ff6600;
+  padding: 0.8rem 1.5rem;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
-  margin-top: 1rem;
-  border-radius: 4px;
+  transition: background 0.3s, color 0.3s;
 }
 .buy-button:hover {
-  background: #ff5500;
+  background: #ff6600;
+  color: #fff;
 }
 
-/* قسم تفاصيل المنتج */
+/* 5) قسم تفاصيل المنتج */
 .product-details {
+  background-color: #fff;
   padding: 2rem;
-  background: #fff;
+  margin: 2rem auto;
+  max-width: 1200px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 .product-details h2 {
   margin-top: 0;
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
-.product-details ul {
-  list-style-type: disc;
-  margin-left: 1.5rem;
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.detail-item {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.detail-item h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #ff6600;
 }
 .price {
+  text-align: center;
   font-weight: bold;
-  margin-top: 1rem;
+  font-size: 1.2rem;
+  margin-top: 2rem;
 }
 
-/* الفوتر */
+/* 6) قسم التقييمات */
+.reviews {
+  background: #fff;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.reviews h2 {
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.review-item {
+  background: #f9f9f9;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* 7) الفوتر */
 .footer {
   background: #333;
   color: #fff;
   text-align: center;
   padding: 1rem;
 }
-.footer .social-links a {
-  color: #fff;
-  text-decoration: none;
-}
-.footer .social-links a:hover {
-  text-decoration: underline;
-}
 
-/* جعل التصميم متجاوبًا */
+/* 8) تجاوب التصميم مع الشاشات الصغيرة */
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
     text-align: center;
   }
-  .hero-content, .product-image {
+  .hero-content {
     max-width: 100%;
   }
-  .product-image {
+  .hero-image-container {
     margin-top: 1rem;
   }
 }
