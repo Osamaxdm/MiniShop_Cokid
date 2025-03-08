@@ -1,72 +1,81 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="{{ settings.language }}">
 <head>
   <meta charset="UTF-8">
-  <title>MiniShop - منتج واحد</title>
+  <title>{{ store.name }} - {{ product.name }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- ربط بخط من Google (مثال) -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet" />
-  <!-- ملف التنسيق -->
+  <!-- ربط ملف CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
-<body dir="rtl"> <!-- افتراضياً عربي ويمين-لليسار -->
-  
+<body dir="{{ settings.direction }}">
   <!-- الهيدر -->
   <header class="header">
-    <div class="logo" id="logo">MiniShop</div>
+    <!-- شعار المتجر الديناميكي -->
+    <img src="{{ store.logo_url }}" alt="{{ store.name }}" class="store-logo">
     <nav class="nav">
-      <!-- أزرار تغيير اللغة -->
-      <a href="#" onclick="setLanguage('ar')">عربي</a> | 
-      <a href="#" onclick="setLanguage('en')">English</a>
+      <a href="#home">{{ settings.nav_home_text }}</a>
+      <a href="#details">{{ settings.nav_details_text }}</a>
+      <a href="#reviews">{{ settings.nav_reviews_text }}</a>
+      <a href="#faq">{{ settings.nav_faq_text }}</a>
+      <!-- يمكنك إضافة مكون تغيير اللغة إذا رغبت -->
     </nav>
   </header>
 
   <!-- قسم البطل (Hero) -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <h1 id="product-name">اسم المنتج الرائع</h1>
-      <p id="product-desc">
-        وصف قصير ومشوّق للمنتج يجذب اهتمام العميل ويبرز مميزاته الأساسية.
-      </p>
-      <button class="buy-button" id="buy-button" onclick="addToCart()">اطلب الآن</button>
+      <h1>{{ product.name }}</h1>
+      <p>{{ product.short_description }}</p>
+      <button class="buy-button" onclick="window.location.href='{{ product.add_to_cart_url }}'">
+        {{ settings.buy_now_text }}
+      </button>
     </div>
     <div class="hero-image-container">
-      <!-- ضع صورة المنتج الفعلية هنا -->
-      <img src="https://via.placeholder.com/450" alt="صورة المنتج" class="product-image" />
+      <img src="{{ product.image_url }}" alt="{{ product.name }}" class="product-image">
     </div>
   </section>
 
   <!-- قسم تفاصيل المنتج -->
   <section class="product-details" id="details">
-    <h2 id="details-title">تفاصيل المنتج</h2>
-    <div class="details-grid">
-      <div class="detail-item">
-        <h3 id="feature1-title">الميزة الأولى</h3>
-        <p id="feature1-desc">وصف مختصر للميزة الأولى وكيف تفيد المستخدم.</p>
-      </div>
-      <div class="detail-item">
-        <h3 id="feature2-title">الميزة الثانية</h3>
-        <p id="feature2-desc">وصف مختصر للميزة الثانية وكيف تفيد المستخدم.</p>
-      </div>
-      <div class="detail-item">
-        <h3 id="feature3-title">الميزة الثالثة</h3>
-        <p id="feature3-desc">وصف مختصر للميزة الثالثة وكيف تفيد المستخدم.</p>
-      </div>
-    </div>
-    <!-- في العربي نستخدم شعار الريال الجديد كصورة، وفي الإنجليزي نكتب SAR -->
-    <p class="price" id="price-label">السعر: 100 
-      <img src="images/riyalsymbol.png" alt="ريال" class="riyalsymbol">
+    <h2>{{ settings.details_title }}</h2>
+    <p>{{ product.description }}</p>
+    <p class="price">
+      {{ settings.price_label }}: {{ product.price }} 
+      <img src="images/riyalsymbol.png" alt="{{ settings.currency_alt_text }}" class="riyalsymbol">
     </p>
-    <button class="buy-button" onclick="addToCart()" id="buy-button-2">أضف للسلة</button>
+    <button class="buy-button" onclick="window.location.href='{{ product.add_to_cart_url }}'">
+      {{ settings.add_to_cart_text }}
+    </button>
+  </section>
+
+  <!-- قسم التقييمات -->
+  <section class="reviews" id="reviews">
+    <h2>{{ settings.reviews_title }}</h2>
+    {% for review in product.reviews %}
+      <div class="review-item">
+        <p>"{{ review.comment }}"</p>
+        <span>- {{ review.author }}</span>
+      </div>
+    {% endfor %}
+  </section>
+
+  <!-- قسم الأسئلة الشائعة (FAQ) -->
+  <section class="faq" id="faq">
+    <h2>{{ settings.faq_title }}</h2>
+    {% for faq in settings.faqs %}
+      <div class="faq-item">
+        <h3>{{ faq.question }}</h3>
+        <p>{{ faq.answer }}</p>
+      </div>
+    {% endfor %}
   </section>
 
   <!-- الفوتر -->
   <footer class="footer">
-    <p id="footer-text">جميع الحقوق محفوظة © 2025 - MiniShop</p>
+    <p>{{ settings.footer_text }} © {{ store.current_year }} - {{ store.name }}</p>
   </footer>
 
-  <!-- ملف الجافاسكربت -->
+  <!-- ملف JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
