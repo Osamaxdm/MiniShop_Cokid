@@ -1,13 +1,16 @@
-/* 1) إعادة ضبط أساسية */
-* {
-  box-sizing: border-box;
+:root {
+  --main-color: {{ settings.primary_color }};
+  --secondary-color: {{ settings.secondary_color }};
+  --font-color: {{ settings.font_color }};
+  --background-color: {{ settings.background_color }};
 }
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Cairo', sans-serif;
-  background: #f9f9f9;
-  color: #333;
+  background: var(--background-color);
+  color: var(--font-color);
 }
 
 /* الهيدر */
@@ -16,24 +19,25 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: #fff;
+  background: var(--main-color);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
   z-index: 10;
 }
-.logo {
-  font-size: 1.5rem;
-  color: #ff6600;
+
+.store-logo {
+  max-height: 50px;
 }
+
 .nav a {
   margin: 0 0.5rem;
   text-decoration: none;
-  color: #333;
+  color: var(--font-color);
   font-weight: 500;
 }
 .nav a:hover {
-  color: #ff6600;
+  color: var(--secondary-color);
 }
 
 /* قسم البطل */
@@ -43,7 +47,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 2rem;
-  background: linear-gradient(to right, #ff9a3c, #ff6600);
+  background: linear-gradient(to right, var(--secondary-color), var(--main-color));
   color: #fff;
 }
 .hero-content {
@@ -58,7 +62,7 @@ body {
 /* زر الشراء */
 .buy-button {
   background: #fff;
-  color: #ff6600;
+  color: var(--main-color);
   padding: 0.8rem 1.5rem;
   border: none;
   border-radius: 4px;
@@ -67,11 +71,11 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 .buy-button:hover {
-  background: #ff6600;
+  background: var(--main-color);
   color: #fff;
 }
 
-/* قسم التفاصيل */
+/* قسم تفاصيل المنتج */
 .product-details {
   background: #fff;
   padding: 2rem;
@@ -79,18 +83,6 @@ body {
   max-width: 1200px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-.details-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-}
-.detail-item {
-  background: #f9f9f9;
-  padding: 1rem;
-  border-radius: 6px;
-  text-align: center;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 .price {
   text-align: center;
@@ -101,10 +93,53 @@ body {
 
 /* رمز الريال */
 .riyalsymbol {
-  width: 20px; /* اضبط الحجم كما يناسبك */
+  width: 20px;
   height: auto;
-  margin-inline-start: 4px; /* مسافة بسيطة بين الرقم والرمز */
-  vertical-align: middle;   /* لضبط المحاذاة */
+  margin-inline-start: 4px;
+  vertical-align: middle;
+}
+
+/* قسم التقييمات */
+.reviews {
+  background: #fff;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.reviews h2 {
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.review-item {
+  background: #f9f9f9;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* قسم الأسئلة الشائعة */
+.faq {
+  background: #fff;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.faq h2 {
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.faq-item {
+  background: #f9f9f9;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 6px;
 }
 
 /* الفوتر */
