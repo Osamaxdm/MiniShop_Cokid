@@ -4,79 +4,69 @@
   <meta charset="UTF-8">
   <title>MiniShop - منتج واحد</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- ربط بخط Google (خط "Cairo" كمثال) -->
+  <!-- ربط بخط من Google (مثال) -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- ملف التنسيق -->
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-
-  <!-- الهيدر (ثابت أعلى الصفحة) -->
+<body dir="rtl"> <!-- افتراضياً عربي ويمين-لليسار -->
+  
+  <!-- الهيدر -->
   <header class="header">
-    <div class="logo">MiniShop</div>
+    <div class="logo" id="logo">MiniShop</div>
     <nav class="nav">
-      <!-- يمكنك وضع روابط أقسام الصفحة للتنقل السلس -->
-      <a href="#home">الرئيسية</a>
-      <a href="#details">تفاصيل المنتج</a>
-      <a href="#reviews">التقييمات</a>
+      <!-- أزرار تغيير اللغة -->
+      <a href="#" onclick="setLanguage('ar')">عربي</a> | 
+      <a href="#" onclick="setLanguage('en')">English</a>
     </nav>
   </header>
 
   <!-- قسم البطل (Hero) -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <h1>اسم المنتج الرائع</h1>
-      <p>
+      <h1 id="product-name">اسم المنتج الرائع</h1>
+      <p id="product-desc">
         وصف قصير ومشوّق للمنتج يجذب اهتمام العميل ويبرز مميزاته الأساسية.
       </p>
-      <button class="buy-button" onclick="addToCart()">اطلب الآن</button>
+      <button class="buy-button" id="buy-button" onclick="addToCart()">اطلب الآن</button>
     </div>
     <div class="hero-image-container">
-      <!-- ضع صورة المنتج هنا -->
+      <!-- ضع صورة المنتج الفعلية هنا -->
       <img src="https://via.placeholder.com/450" alt="صورة المنتج" class="product-image" />
     </div>
   </section>
 
   <!-- قسم تفاصيل المنتج -->
   <section class="product-details" id="details">
-    <h2>تفاصيل المنتج</h2>
+    <h2 id="details-title">تفاصيل المنتج</h2>
     <div class="details-grid">
       <div class="detail-item">
-        <h3>الميزة الأولى</h3>
-        <p>وصف مختصر للميزة الأولى وكيف تفيد المستخدم.</p>
+        <h3 id="feature1-title">الميزة الأولى</h3>
+        <p id="feature1-desc">وصف مختصر للميزة الأولى وكيف تفيد المستخدم.</p>
       </div>
       <div class="detail-item">
-        <h3>الميزة الثانية</h3>
-        <p>وصف مختصر للميزة الثانية وكيف تفيد المستخدم.</p>
+        <h3 id="feature2-title">الميزة الثانية</h3>
+        <p id="feature2-desc">وصف مختصر للميزة الثانية وكيف تفيد المستخدم.</p>
       </div>
       <div class="detail-item">
-        <h3>الميزة الثالثة</h3>
-        <p>وصف مختصر للميزة الثالثة وكيف تفيد المستخدم.</p>
+        <h3 id="feature3-title">الميزة الثالثة</h3>
+        <p id="feature3-desc">وصف مختصر للميزة الثالثة وكيف تفيد المستخدم.</p>
       </div>
     </div>
-    <p class="price">السعر: 100 ريال</p>
-    <button class="buy-button" onclick="addToCart()">أضف للسلة</button>
-  </section>
-
-  <!-- قسم التقييمات (اختياري) -->
-  <section class="reviews" id="reviews">
-    <h2>آراء العملاء</h2>
-    <div class="review-item">
-      <p>"منتج رائع فعلاً!"</p>
-      <span>- عميل سعيد</span>
-    </div>
-    <div class="review-item">
-      <p>"جودة ممتازة وسعر معقول."</p>
-      <span>- عميل آخر</span>
-    </div>
+    <!-- في العربي نستخدم شعار الريال الجديد كصورة، وفي الإنجليزي نكتب SAR -->
+    <p class="price" id="price-label">السعر: 100 
+      <img src="images/riyalsymbol.png" alt="ريال" class="riyalsymbol">
+    </p>
+    <button class="buy-button" onclick="addToCart()" id="buy-button-2">أضف للسلة</button>
   </section>
 
   <!-- الفوتر -->
   <footer class="footer">
-    <p>جميع الحقوق محفوظة © 2025 - MiniShop</p>
+    <p id="footer-text">جميع الحقوق محفوظة © 2025 - MiniShop</p>
   </footer>
 
-  <!-- ربط ملف السكربت -->
+  <!-- ملف الجافاسكربت -->
   <script src="script.js"></script>
 </body>
 </html>
